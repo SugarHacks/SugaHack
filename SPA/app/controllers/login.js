@@ -7,7 +7,7 @@ app.controller('loginController', function ($scope, settings) {
       "scopes": "openid",
       "containerid": "paypalLogin",
       "locale": "en-us",
-      "returnurl": "http://sugahacks.me/"
+      "returnurl": "http://localhost:1400/scope"
     });
   });
 
