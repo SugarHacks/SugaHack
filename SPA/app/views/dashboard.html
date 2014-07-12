@@ -3,42 +3,53 @@
     <article class="profile">
       <figure class="balance">10.00<b>&euro;</b></figure>
       <img src="/assets/images/profileImg.jpg" />
-      <figure class="points">340</figure>
+      <figure class="points">340 <b>pnts.</b>
+      </figure>
+      <div class="achievments">
+        <i class="fa fa-spoon"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-bell"></i>
+        <i class="fa fa-graduation-cap"></i>
+      </div>
     </article>
   </header>
 
-  <article class="dashboardContent">
+  <article class="dashboardContent" ng-class="{show:isReady}">
     <figure class="logbook">
       <h1><i class="fa fa-book"></i>Logbook</h1>
       <div>
-        <span class="measure good">100</span>
+        <span class="measure good">100 </br><span>mg. per dl</span></span>
         <span class="affected">
           <p><b>+ 250</b> points</p>
           <p><b>- 0.50</b>&euro;</p>
         </span>
         <span class="timestamp">
-          <p></p>
+          <p><i class="fa fa-calendar"></i> November, 5th 2014 </br> <i class="fa fa-clock-o"></i> 10:50pm</p>
         </span>
       </div>      
 
       <div>
-        <span class="measure okay">80</span>
+        <span class="measure okay">58 </br><span>mg. per dl</span></span>
         <span class="affected">
           <p>+ 50 points</p>
           <p>- 0.40&euro;</p>
         </span>
-      </div>      
-
-      <div>
-        <span class="measure bad">10</span>
-        <span class="affected">
-          <p>+ 150 points</p>
-          <p>- 2.50&euro;</p>
+        <span class="timestamp">
+          <p><i class="fa fa-calendar"></i> November, 5th 2014 </br> <i class="fa fa-clock-o"></i> 10:50pm</p>
         </span>
       </div>      
 
       <div>
-      </div>
+        <span class="measure bad">10 </br><span>mg. per dl</span></span>
+        <span class="affected">
+          <p>+ 150 points</p>
+          <p>- 2.50&euro;</p>
+        </span>
+        <span class="timestamp">
+          <p><i class="fa fa-calendar"></i> November, 5th 2014 </br> <i class="fa fa-clock-o"></i> 10:50pm</p>
+        </span>
+      </div>      
+
     </figure>
     <figure class="ladder"><h1><i class="fa fa-star"></i>Ladder</h1></figure>
     <figure class="statistics"><h1><i class="fa fa-bar-chart-o"></i>Trends</h1></figure>

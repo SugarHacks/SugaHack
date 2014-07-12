@@ -1,11 +1,19 @@
 app.controller('loginController', function ($scope, settings) {
-  $scope.login = function(username){
-    localStorage.setItem("username", username);
-    localStorage.setItem("room", "Lobby");
-    settings.username = username;
-    settings.room = "Lobby";
-    socket.emit("login",{username: settings.username, room:settings.room, oauth: localStorage.getItem("auth")});
-    window.location = "/bluefire";
-  } 
+
+  paypal.use( ["login"], function(login) {
+    login.render ({
+      "appid": "AQbfahAS3C8yTIWSmM2O06RK-JOg_0oIyTQO9iFFTD_htEygu5dWjkkqGWq6",
+      "authend": "sandbox",
+      "scopes": "openid",
+      "containerid": "paypalLogin",
+      "locale": "en-us",
+      "returnurl": "http://sugahacks.me/"
+    });
+  });
+
+  $scope.login = function(){
+    $("#paypalLogin button").click();
+  }
+
 
 });

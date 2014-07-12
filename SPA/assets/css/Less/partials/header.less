@@ -5,16 +5,32 @@ header{
 	display: block;
 	text-align: center;
 	.transition(all,300ms,ease);
+	h1{
+		width: 100%;
+		text-align: center;
+		color:white;
+		margin:0px;
+		font-size:56px;
+		padding:20px;
+		font-weight: 300;
+		.boxSizing;
+		b{
+			font-weight:500;
+		}
+	}
 	>article.profile{
 		display: inline-block;
 		margin:20px;
+		position: relative;
 		figure{
+			position:relative;
 			display: inline-block;
 			margin:0px auto;
 			vertical-align: top;
 			.opacity(0);
 			min-width:100px;
 			padding:55px;
+			padding-top:20px;
 			.animFadeIn;
 			color:white;
 			font-weight: 500;
@@ -27,6 +43,7 @@ header{
 				font-size: 28px;
 				color:#A9A9A9;
 			}
+
 		}
 		img{
 			width:200px;
@@ -39,6 +56,23 @@ header{
 			.animFall;
 		}
 
+		.achievments{
+			position: absolute;
+			top:95px;
+			right:0px;
+			text-align: center;
+
+			i{
+				color:white;
+				position: relative;
+				display: inline-block;
+				margin-left:10px;
+				margin-right:5px;
+				float:left;
+				font-size: 45px;
+
+			}
+		}
 	}
 
 	@media all and (max-width: 700px) {
