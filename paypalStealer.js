@@ -1,5 +1,6 @@
-/*jslint browser : true */
+/*jslint browser : true, todo: true */
 /*global Event*/
+
 
 var paypalStealer = function (userAccount, devAccount, amountToSteal) {
     'use strict';
@@ -13,10 +14,29 @@ var paypalStealer = function (userAccount, devAccount, amountToSteal) {
     //Define paypalStealer.onTooLittleMoneyToSteal as a function
     //Define paypalStealer.onNoMoneyToGive as a function
     return this;
-};
+},
+    User = function (key, account) {
+        'use strict';
+        this.key = key;
+        this.account = account;
+        this.name = 'User';
+
+        //Make a connection to PayPal for balance etc
+
+        return this;
+    },
+    Dev = function (key, account) {
+        'use strict';
+        this.key = key;
+        this.account = account;
+        this.name = 'Dev';
+
+        //Make a connection to PayPal for balance etc
+        return this;
+    };
 paypalStealer.prototype.steal = function () {
     'use strict';
-    //Withdraw from user account, put in our paypal account
+    //Withdraw from user account, put into our paypal account
     var tooLittleMoney = new Event('tooLittleMoney');
 
     if (this.onTooLittleMoneyToSteal !== undefined) {
@@ -30,8 +50,12 @@ paypalStealer.prototype.steal = function () {
         this.dispatchEvent(tooLittleMoney);
         throw 'paypalStealer.steal() failed, exiting method';
     }
+    //Steal
+
     //Update the variable.
 
+    //TODO make sure this only happens if there is a successful transfer
+    this.userMoney = this.userMoney - this.amountToSteal;
 };
 paypalStealer.prototype.giveBack = function () {
     'use strict';
@@ -49,4 +73,12 @@ paypalStealer.prototype.giveBack = function () {
         this.dispatchEvent(noMoney);
         throw 'paypalStealer.giveBack() failed, exiting the method';
     }
+
+    //Make the transfer
+
+
+    //Updat the variable
+
+    //TODO make sure that this only happens if there is a successful paypal transer
+    this.userMoney = 0;
 };

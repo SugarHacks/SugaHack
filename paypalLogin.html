@@ -1,0 +1,15 @@
+<!--code generated from paypal! Put this wherever it is we want the login button-->
+<span id="paypalLogin"></span>
+<script src="https://www.paypalobjects.com/js/external/api.js"></script>
+<script>
+paypal.use( ["login"], function(login) {
+  login.render ({
+    "appid": "AQbfahAS3C8yTIWSmM2O06RK-JOg_0oIyTQO9iFFTD_htEygu5dWjkkqGWq6",
+    "authend": "sandbox",
+    "scopes": "openid",
+    "containerid": "paypalLogin",
+    "locale": "en-us",
+    "returnurl": "http://sugahacks.me/"
+  });
+});
+</script>
