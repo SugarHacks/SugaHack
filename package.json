@@ -1,0 +1,10 @@
+{
+    "dependencies" : {
+        "socket.io" : "*",
+        "mongodb" : "*",
+        "mongoskin" : "*",
+        "express" : "*",
+        "node-curl" : "*",
+        "body-parser" : "*"
+    }
+}
