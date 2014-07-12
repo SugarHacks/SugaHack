@@ -1,0 +1,5 @@
+Attached .csv file is an export from the Bayer software with historical data. Includes Date, Time and Glucose value.
+
+To import to mongodb database and collection execute following script:
+
+mongoimport -d [database] -c [collection] --type csv --file dir/Zayani_Amin_07122014231109.csv --headerline --upsert
