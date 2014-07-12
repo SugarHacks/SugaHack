@@ -20,7 +20,7 @@ app.constant("settings", {
     room:"",
 });
 
-
+/*
 app.run(function ($http, $location, settings) {
 
 });
@@ -49,7 +49,15 @@ app.config(function ($routeProvider, $locationProvider,settings) {
 
         .otherwise({ redirectTo: '/' });
 });
+*/
 
+app.config(function ($routeProvider, $locationProvider,settings) {
+    $routeProvider.
+      when("/", { templateUrl: "login.html" }).
+      otherwise( { redirectTo: "/" });
+
+
+});
 
 
 
