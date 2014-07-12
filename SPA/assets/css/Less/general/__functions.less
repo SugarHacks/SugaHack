@@ -1,0 +1,285 @@
+
+.rounded-corners (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+
+
+.backgroundImageCover{
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.boxSizing{
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image: -moz-linear-gradient(@origin, @start, @stop);
+    background-image: -o-linear-gradient(@origin, @start, @stop);
+    background-image: -ms-linear-gradient(@origin, @start, @stop);
+    background-image: linear-gradient(@origin, @start, @stop);
+}
+
+
+.noSelect{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.glow{
+    .transition(all,500ms,ease);
+    .box-shadow( 0px 0px 10px rgb(165, 165, 255));
+    .rounded-corners(5px);
+    padding: 15px;
+    left: -15px;
+    top: -15px;
+}
+
+.animation(@name:0, @iteration:1, @timing:ease-in,@duration:0.3s){
+    -moz-animation-name: @name;
+    -moz-animation-iteration-count: @iteration;
+    -moz-animation-timing-function: @timing;
+    -moz-animation-duration: @duration;
+
+    -webkit-animation-name:  @name;
+    -webkit-animation-iteration-count: @iteration;
+    -webkit-animation-timing-function: @timing;
+    -webkit-animation-duration: @duration;
+
+    animation-name:  @name;
+    animation-iteration-count: @iteration;
+    animation-timing-function: @timing;
+    animation-duration: @duration;
+}
+
+.rotation(@deg:5deg){ 
+  -o-transform: rotate(@deg);
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+.rotateY(@deg:5deg){ 
+  -o-transform: rotateY(@deg);
+  -webkit-transform: rotateY(@deg);
+  -moz-transform: rotateY(@deg);
+  -ms-transform: rotateY(@deg);
+  transform: rotateY(@deg);
+}
+
+.rotateX(@deg:5deg){ 
+  -o-transform: rotateX(@deg);
+  -webkit-transform: rotateX(@deg);
+  -moz-transform: rotateX(@deg);
+  -ms-transform: rotateX(@deg);
+  transform: rotateX(@deg);
+}
+  
+//End 
+
+.blurAndGrayscale(@blur: 0px, @gray: 0%){
+    -webkit-filter: blur(@blur) grayscale(@gray); 
+}
+//Animations and trasitions
+.scale(@amount: 1.1, @tz: 0) {
+    -webkit-transform: scale(@amount) translateZ(@tz);
+    -moz-transform: scale(@amount) translateZ(@tz);
+    -o-transform: scale(@amount) translateZ(@tz);
+    transform: scale(@amount) translateZ(@tz);
+}
+.scaleAndRotateX(@amount: 1.1, @deg: 0deg, @tz: 0) {
+    -webkit-transform: scale(@amount) rotateX(@deg) translateZ(@tz);
+    -moz-transform: scale(@amount) rotateX(@deg) translateZ(@tz);
+    -o-transform: scale(@amount) rotateX(@deg) translateZ(@tz);
+    transform: scale(@amount) rotateX(@deg) translateZ(@tz);
+}
+
+.scale3d(@a: 0, @b: 0 , @c:0) {
+    -webkit-transform: scale3d(@a,@b,@c);
+    -moz-transform:scale3d(@a,@b,@c);
+    -o-transform: scale3d(@a,@b,@c);
+    transform: scale3d(@a,@b,@c);
+}
+
+
+
+.transition(@prop: all, @time: 1s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+    text-shadow: @string;
+}
+.perspective (@value: 1000) {
+    -webkit-perspective:    @value;
+    -moz-perspective:   @value;
+    -ms-perspective:    @value;
+    perspective:        @value;
+}
+.transitionDelay(@delay: 1s){
+    transition-delay: @delay;
+    -webkit-transition-delay: @delay;
+}
+
+//End 
+
+// just for comforts sake
+
+.opacity (@opacity: 0.5) {
+    -webkit-opacity:    @opacity;
+    -moz-opacity:       @opacity;
+    opacity:        @opacity;
+}
+
+.transitionDelay(@delay: 1s){
+    transition-delay: @delay;
+    -webkit-transition-delay: @delay;
+}
+.animSpin{
+    -webkit-animation-name: rotate; 
+    -webkit-animation-duration: 2s; 
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -moz-animation-name: rotate; 
+    -moz-animation-duration: 2s; 
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+.animFall{
+    -webkit-animation-name: fall; 
+    -webkit-animation-duration: 200ms; 
+    -webkit-animation-delay: 0.3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: fall; 
+    -moz-animation-duration: 200ms; 
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+
+}
+
+@-webkit-keyframes fall {
+    0% {
+        top:-200px;
+        .opacity(0);
+    }
+    100%{
+        top:0px;
+        .opacity(1);
+    }    
+
+}
+
+@-moz-keyframes fall {
+    0% {
+        top:-200px;
+        .opacity(0);
+    }
+    100%{
+        top:0px;
+        .opacity(1);
+    }    
+
+}
+
+.animFadeIn{
+    -webkit-animation-name: fadein; 
+    -webkit-animation-duration: 200ms; 
+    -webkit-animation-delay: 0.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: fadein; 
+    -moz-animation-duration: 200ms; 
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-in;
+
+}
+
+@-webkit-keyframes fadein {
+    0% {
+ 
+        .opacity(0);
+    }
+    100%{
+
+        .opacity(1);
+    }    
+
+}
+
+@-moz-keyframes fadein {
+    0% {
+ 
+        .opacity(0);
+    }
+    100%{
+
+        .opacity(1);
+    }    
+}
+
+
+.scrollBar::-webkit-scrollbar-track
+{
+    
+    background-color: rgba(0, 0, 0, 0.07);
+
+}
+
+.scrollBar::-webkit-scrollbar
+{
+    width: 7px;
+    background-color: transparent;
+}
+
+.scrollBar::-webkit-scrollbar-thumb
+{
+    .rounded-corners(3px);
+    width:7px;
+    cursor: pointer;
+
+    background-color: #4488ff;
+    
+    &:hover{
+        .transition(all,300ms,ease);
+        background-color: rgba(0, 102, 255, 1);
+    }
+}
+
