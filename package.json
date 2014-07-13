@@ -7,7 +7,8 @@
   "repository": "http://github.com/SugarHack/SugarHack/",
   "description": "An api and demo app for the Countour Next",
   "dependencies": {
-    "body-parser": "*",
+    "async": "^0.9.0",
+    "body-parser": "^1.4.3",
     "express": "*",
     "hashids": "^0.3.3",
     "moment": "*",
