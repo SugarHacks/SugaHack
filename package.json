@@ -1,22 +1,20 @@
 {
-    "name" : "SugaHack",
-    "version" : "0.0.1",
-    "main" : "backend.js",
-    "author" : "SugaHacks",
-    "license" : "MIT",
-    "repository" : "http://github.com/SugarHack/SugarHack/",
-    "bugs" : {
-        "http://github.com/SugarHacks/SugaHack/issues"
-    },
-    "description" : "An api and demo app for the Countour Next",
-    "dependencies" : {
-        "socket.io" : "*",
-        "mongodb" : "*",
-        "mongoskin" : "*",
-        "express" : "*",
-        "node-curl" : "*",
-        "body-parser" : "*",
-    	  "sendgrid": "1.1.0",
-        "moment": "*"
-    }
+  "name": "SugaHack",
+  "version": "0.0.1",
+  "main": "backend.js",
+  "author": "SugaHacks",
+  "license": "MIT",
+  "repository": "http://github.com/SugarHack/SugarHack/",
+  "description": "An api and demo app for the Countour Next",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "hashids": "^0.3.3",
+    "moment": "*",
+    "mongodb": "*",
+    "mongoskin": "*",
+    "node-curl": "*",
+    "sendgrid": "1.1.0",
+    "socket.io": "*"
+  }
 }
