@@ -5,6 +5,7 @@
         "mongoskin" : "*",
         "express" : "*",
         "node-curl" : "*",
-        "body-parser" : "*"
+        "body-parser" : "*",
+    	"sendgrid": "1.1.0"        
     }
 }
