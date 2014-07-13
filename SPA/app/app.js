@@ -16,13 +16,54 @@ var app = angular.module('sugahack', [
 
 
 app.constant("settings", {
-    username:"",
-    room:"",
+    baseAddress:"http://audun.io:1024",
+    token:"",
 });
 
-/*
-app.run(function ($http, $location, settings) {
 
+app.run(function ($http, $location, settings) {
+    var token = localStorage.getItem('clientToken');
+    settings.embed ={};
+    function parse(input){
+        console.log(input);
+        var token = input.split("code=")[1];
+ 
+        return token;
+    }
+
+
+    function getToken(){
+        return parse($location.$$absUrl);
+    }
+
+    switch($location.path()){
+
+        case "/scrape":
+
+            $http.defaults.headers.common['Authorization'] = 'Bearer '+ getToken();
+            localStorage.setItem("clientToken",getToken());
+            settings.token = getToken();
+            window.opener.location = "/dashboard";
+            window.close();
+
+            break;
+
+        case "/logout":
+            localStorage.removeItem("clientToken");
+            settings.token= undefined;
+            window.location = "/";
+            break;
+
+
+        default:
+            var token = localStorage.getItem("clientToken");
+            if (token !== null && token.length > 0 ){
+                //$http.defaults.headers.common['Authorization'] = 'Bearer '+ token;
+                localStorage.setItem("clientToken",token);
+                settings.token =token;
+            }
+        break;
+    }
 });
 
 
@@ -49,15 +90,7 @@ app.config(function ($routeProvider, $locationProvider,settings) {
 
         .otherwise({ redirectTo: '/' });
 });
-*/
 
-app.config(function ($routeProvider, $locationProvider,settings) {
-    $routeProvider.
-      when("/", { templateUrl: "login.html" }).
-      otherwise( { redirectTo: "/" });
-
-
-});
 
 
 
