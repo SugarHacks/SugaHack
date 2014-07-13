@@ -75,7 +75,16 @@ app.post('/giveCode/:code', function(req, res) {
 });
 
 var computeScore = function (glucose) {
-    return 0;
+    if  (glucose >= 250 ){
+        return -2;
+    } else if (glucose < 60 || glucose > 180){
+        return -1;
+    } else if (glucose >80 && glucose<140){
+        return 1
+    } else {
+        return 0
+    }
+    
 };
 
 app.post('/users/data', function (req, res) {
