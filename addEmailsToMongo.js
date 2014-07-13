@@ -2,7 +2,7 @@
 /*global */
 
 var MongoClient = require('mongodb').MongoClient,
-    Hashids = require('Hashids'),
+    Hashids = require('hashids'),
     hashids = new Hashids('iknowthisisntagoodsalt');
 
 MongoClient.connect('mongodb://127.0.0.1:27017/test', function (err, db) {
