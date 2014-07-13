@@ -22,6 +22,7 @@ app.constant("settings", {
 
 
 app.run(function ($http, $location, settings) {
+    
     var token = localStorage.getItem('clientToken');
     settings.embed ={};
     function parse(input){
@@ -40,7 +41,7 @@ app.run(function ($http, $location, settings) {
 
         case "/scrape":
 
-            $http.defaults.headers.common['Authorization'] = 'Bearer '+ getToken();
+            //$http.defaults.headers.common['Authorization'] = 'Bearer '+ getToken();
             localStorage.setItem("clientToken",getToken());
             settings.token = getToken();
             window.opener.location = "/dashboard";
