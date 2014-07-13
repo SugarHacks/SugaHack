@@ -1,0 +1,50 @@
+<VirtualHost *:80>
+ServerAdmin tim@localhost
+ServerName www.duelarcade.com
+ServerAlias duelarcade.com www.duelarcade.com
+
+
+DocumentRoot /var/www/www.duelarcade.com/SPA
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+# <Directory /var/www/>
+<Directory /var/www/www.duelarcade.com/SPA>
+#    Require all granted
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+</Directory>
+
+        <Directory /var/www/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+                # Uncomment this directive is you want to see apache2's
+                # default start page (in /apache2-default) when you go to /
+                #RedirectMatch ^/$ /apache2-default/
+        </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+ServerAdmin zaku@localhost
+ServerName bluefire.duelaracade.com
+ServerAlias bluefire.duelarcade.com
+
+
+    ProxyRequests off
+
+    <Proxy *>
+            Order deny,allow
+            Allow from all
+    </Proxy>
+
+    <Location />
+            ProxyPass http://localhost:1400/
+            ProxyPassReverse http://localhost:1400/
+    </Location>
+
+</VirtualHost>

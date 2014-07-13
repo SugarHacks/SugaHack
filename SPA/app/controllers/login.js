@@ -7,7 +7,7 @@ app.controller('loginController', function ($scope, settings) {
       "scopes": "openid",
       "containerid": "paypalLogin",
       "locale": "en-us",
-      "returnurl": "http://localhost:1400/scope"
+      "returnurl": "http://localhost:1400/scrape"
     });
   });
 

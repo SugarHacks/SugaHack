@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
-        <link href="assets/css/app.css" rel="stylesheet" media="screen">
+        <link href="/assets/css/app.css" rel="stylesheet" media="screen">
 
-        <link rel="shortcut icon" type="image/png" href="assets/images/Icon.png"/>
+        <link rel="shortcut icon" type="image/png" href="/assets/images/Icon.png"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Syncronize your life">
         <meta name="author" content="SugaHack">
@@ -18,42 +18,28 @@
       <body>
        
         <div ng-view></div>
-
-        <script type="text/ng-template"  id="login.html">
-        <section class="login" ng-controller="loginController">
-          <span ng-hide="true" id="paypalLogin"></span>
-          <header>
-            <h1>Sugar<b>Hack</b></h1>
-          </header>
-          <article>
-            <h2>Syncronize, control and discipline your diabetic life. Simply plug in your <b>USB glucose meter</b> and track your levels. Earn points as you do better. Use paypal to keep your glucose levels in check. Simply sign in below to get started.</h2>
-            <a ng-click="login()"><i class="fa fa-sign-in"></i>Login with PayPal</a>
-          </article>
-        </section>
-        </script>
-        
-        <script type="text/javascript" src="assets/scripts/socket.io.js"></script>
-        <script type="text/javascript" src="assets/scripts/angular.js"></script>
-        <script type="text/javascript" src="assets/scripts/jquery.js"></script>
-        <script type="text/javascript" src="assets/scripts/date.js"></script>
-        <script type="text/javascript" src="assets/scripts/angular-resource.js"></script>
-        <script type="text/javascript" src="assets/scripts/angular-route.js"></script>
+        <script src="/assets/scripts/socket.io.js"></script>
+        <script src="/assets/scripts/angular.js"></script>
+        <script src="/assets/scripts/jquery.js"></script>
+        <script src="/assets/scripts/date.js"></script>
+        <script src="/assets/scripts/angular-resource.js"></script>
+        <script src="/assets/scripts/angular-route.js"></script>
         
 
-        <script type="text/javascript" src="app/app.js"></script>
+        <script src="/app/app.js"></script>
 
 
 
-        <script type="text/javascript" src="app/controllers/index.js"></script>
-        <script type="text/javascript" src="app/controllers/dashboard.js"></script>
-        <script type="text/javascript" src="app/controllers/login.js"></script>
+        <script src="/app/controllers/index.js"></script>
+        <script src="/app/controllers/dashboard.js"></script>
+        <script src="/app/controllers/login.js"></script>
 
-        <script type="text/javascript" src="app/services/socket.js"></script> 
+        <script src="/app/services/socket.js"></script> 
+        <script src="/app/services/user.js"></script> 
 
-        <script type="text/javascript" src="https://www.paypalobjects.com/js/external/api.js"></script>
+        <script src="https://www.paypalobjects.com/js/external/api.js"></script>
 
 
-
-
+       
     </body>
 </html>
