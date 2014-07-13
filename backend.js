@@ -99,4 +99,22 @@ app.post('/users/:user_email/data', function (req, res) {
     });
 });
 
+app.post('/giveCode/:code', function(req, res){
+	'use strict';
+	MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db){
+      var clientId = "AQbfahAS3C8yTIWSmM2O06RK-JOg_0oIyTQO9iFFTD_htEygu5dWjkkqGWq6";
+      var secret = "EN6kcRBienNVzugfc9p1x3T3GleccZK2SaA3buglqfec8TiKaFP0lny1c5wF";
+      var code = req.params.code;
+      var paypalURL = 'https://api.sandbox.paypal.com/v1/identity/openidconnect/tokenservice';
+      var paypalResponse = request.get(paypalURL, { 'auth': {
+          'client-id' : clientId,
+          'secret' : secret,
+          'grant_type' : 'authorization_code',
+          'code' : code
+        }});
+      console.log(paypalResponse);
+      });
+  });
+})
+
 app.listen(1024);
