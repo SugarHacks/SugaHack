@@ -52,7 +52,14 @@ app.post('/giveCode/:code', function(req, res){
       var secret = "EN6kcRBienNVzugfc9p1x3T3GleccZK2SaA3buglqfec8TiKaFP0lny1c5wF";
       var code = req.params.code;
       var paypalURL = 'https://api.sandbox.paypal.com/v1/identity/openidconnect/tokenservice';
-  
+      var paypalResponse = request.get(paypalURL, { 'auth' {
+          'client-id' : clientId,
+          'secret' : secret,
+          'grant_type' : 'authorization_code',
+          'code' : code
+        };
+      console.log(paypalResponse);
+      });
   });
 })
 app.listen(1024);
