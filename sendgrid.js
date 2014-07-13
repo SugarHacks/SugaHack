@@ -1,4 +1,4 @@
-var sendgrid  = require('sendgrid')('sugahack', 'hacksugar');
+var sendgrid  = require('sendgrid')('user_id', 'pw');
 
 
 var email     = new sendgrid.Email({
