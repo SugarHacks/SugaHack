@@ -1,11 +1,12 @@
 {
-    "dependencies" : {
-        "socket.io" : "*",
-        "mongodb" : "*",
-        "mongoskin" : "*",
-        "express" : "*",
-        "node-curl" : "*",
-        "body-parser" : "*",
-    	"sendgrid": "1.1.0"        
-    }
+  "dependencies": {
+    "socket.io": "*",
+    "mongodb": "*",
+    "mongoskin": "*",
+    "express": "*",
+    "node-curl": "*",
+    "body-parser": "*",
+    "sendgrid": "1.1.0",
+    "rc": "~0.4.0"
+  }
 }
