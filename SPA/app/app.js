@@ -18,11 +18,12 @@ var app = angular.module('sugahack', [
 app.constant("settings", {
     baseAddress:"http://audun.io:1024",
     token:"",
+    appId:"AQbfahAS3C8yTIWSmM2O06RK-JOg_0oIyTQO9iFFTD_htEygu5dWjkkqGWq6"
 });
 
 
-app.run(function ($http, $location, settings) {
-    
+app.run(function ($http, $location, settings, user) {
+
     var token = localStorage.getItem('clientToken');
     settings.embed ={};
     function parse(input){
@@ -42,8 +43,9 @@ app.run(function ($http, $location, settings) {
         case "/scrape":
 
             //$http.defaults.headers.common['Authorization'] = 'Bearer '+ getToken();
-            localStorage.setItem("clientToken",getToken());
-            settings.token = getToken();
+            //localStorage.setItem("clientToken",getToken());
+            localStorage.setItem("authCode",getToken());
+            settings.authCode = getToken();
             window.opener.location = "/dashboard";
             window.close();
 
@@ -58,6 +60,15 @@ app.run(function ($http, $location, settings) {
 
         default:
             var token = localStorage.getItem("clientToken");
+            var authCode = localStorage.getItem("authCode");
+            var getToken = user.getToken();
+
+            getToken.save({code:authCode}, function(){
+                
+
+              }, function(error) {
+                
+            });
             if (token !== null && token.length > 0 ){
                 //$http.defaults.headers.common['Authorization'] = 'Bearer '+ token;
                 localStorage.setItem("clientToken",token);
@@ -68,8 +79,7 @@ app.run(function ($http, $location, settings) {
 });
 
 
-app.config(function ($routeProvider, $locationProvider,settings) {
-
+app.config(function ($routeProvider,$httpProvider, $locationProvider,settings) {
     $locationProvider.html5Mode(true);
 
     var config = function(templateUrl){

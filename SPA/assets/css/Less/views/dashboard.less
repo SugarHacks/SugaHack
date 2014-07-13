@@ -9,6 +9,7 @@ section.dashboard{
     display: inline-block;
     margin-top:100px;
     min-height: 300px;
+    max-height: 600px;
     text-align: center;
     figure{
       position: relative;
@@ -16,6 +17,8 @@ section.dashboard{
       max-width:500px;
       min-height: 300px;
       display: inline-block;
+
+
       .rounded-corners(5px);
       .boxSizing;
       vertical-align: top;
@@ -35,9 +38,18 @@ section.dashboard{
         padding:20px;
         font-size: 21px;
         font-weight: 500;
+        position: relative;
+    
         i{
           margin-right:10px;
         }
+      }
+      div.list{
+        max-height: 400px;
+
+        display: inline-block;
+        overflow-x:hidden;
+        overflow-y:scroll;
       }
     }
 
@@ -88,4 +100,7 @@ section.dashboard{
 
 .bad{
   background-color:rgba(231, 76, 60, 0.80);
+}
+.verybad{
+  background-color:rgba(255, 0, 0, 1);
 }
