@@ -78,13 +78,13 @@ var computeScore = function (glucose) {
     return 0;
 };
 
-app.post('/users/:user_email/data', function (req, res) {
+app.post('/users/data', function (req, res) {
     connectToMongo(function(err, db) {
         if (err)
             return res.send(500, err);
         async.each(req.body, function (item, next) {
             db.collection('values').insert({
-                email: req.params.user_email,
+                email: item.email,
                 glucose: item.glucose,
                 date: item.date,
                 time: item.time,
