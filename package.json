@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "dependencies" : {
         "socket.io" : "*",
         "mongodb" : "*",
@@ -9,4 +10,16 @@
     	  "sendgrid": "1.1.0",
         "moment": "*"
     }
+=======
+  "dependencies": {
+    "socket.io": "*",
+    "mongodb": "*",
+    "mongoskin": "*",
+    "express": "*",
+    "node-curl": "*",
+    "body-parser": "*",
+    "sendgrid": "1.1.0",
+    "rc": "~0.4.0"
+  }
+>>>>>>> d17708cb42054ab1bffd5f63588c2e28afbb8877
 }
