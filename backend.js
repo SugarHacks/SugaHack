@@ -1,13 +1,8 @@
-/*jslint node: true*/
-/*global hashids*/
-
 var app = require('express')();
 var MongoClient = require('mongodb').MongoClient;
 var io = require('socket.io');
 var moment = require('moment');
-var Hashids = require('hashids');
-var hash = new Hashids('iknowthisisntagoodsalt');
-
+var request = require('request');
 // var getAuthCode = function (url) {
 //     'use strict';
 //     var regex = /&code=(.*)/,
@@ -18,38 +13,46 @@ var hash = new Hashids('iknowthisisntagoodsalt');
 //     }
 //     return false;
 // };
-
-app.get('/users:user_email', function (req, res, next) {
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+app.get('/users/:user_email/:latest', function (req, res, next) {
     'use strict';
     MongoClient.connect('mongodb://127.0.01:27017/test', function (err, db) {
-        if (err) { throw err; }
-        var collection = db.collection('values'),
-            userEmail = req.params[0],
-            userEmailEncrypted = hash.encrypt(userEmail);
-        res.send(collection.find({user : userEmailEncrypted}));
-        return next();
+            var collection = db.collection('values'),
+            userEmail = req.params.user_emai,
+	    latest = req.params.latest,
+            cursor = collection.find({email : userEmail}, {limit : latest}),
+	    cursorArray = cursor.toArray(function(err, doc){
+		res.send(doc);
+});
     });
 });
 
-app.post('/user_insert:user', function (req, res, next) {
-    'use strict';
-    MongoClient.connect('mongodb:/127.0.0.1:27017/test', function (err, db) {
-        if (err) { throw err; }
-        var collection = db.colection('values'),
-            userToPush = req.params[0],
-            userEncrypted = hash.encrypt(userToPush);
-        res.send(collection.insert({user : userEncrypted}));
-        return next();
-    });
+app.get('/getLatest/:latest', function(req, res){
+	'use strict';
+	MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db){
+		var collection = db.collection('values'),
+		latest = req.params.latest,
+		cursor = collection.find({}, {limit : latest, sort : ['date', 'desc']}),
+		cursorArray = cursor.toArray(function(err, document){
+			console.log(document);
+			console.log('retrieving...');
+			res.send(document);
+		});
+	});
 });
-
-// app.post('/send_token:token', function(req, res, next){
-//     'use strict';
-//     MongoClient.connect('mongodb.127.0.0.1:27017/test' function (err, db){
-//         if (err) { throw err; }
-//         var params
-//     })
-// });
+app.post('/giveCode/:code', function(req, res){
+	'use strict';
+	MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db){
+      var clientId = "AQbfahAS3C8yTIWSmM2O06RK-JOg_0oIyTQO9iFFTD_htEygu5dWjkkqGWq6";
+      var secret = "EN6kcRBienNVzugfc9p1x3T3GleccZK2SaA3buglqfec8TiKaFP0lny1c5wF";
+      var code = req.params.code;
+      var paypalURL = 'https://api.sandbox.paypal.com/v1/identity/openidconnect/tokenservice';
+      var auth 
+  });
+})
 app.listen(1024);
-
-module.export = app;
