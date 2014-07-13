@@ -6,6 +6,7 @@
         "express" : "*",
         "node-curl" : "*",
         "body-parser" : "*",
-    	"sendgrid": "1.1.0"        
+    	  "sendgrid": "1.1.0",
+        "moment": "*"
     }
 }
