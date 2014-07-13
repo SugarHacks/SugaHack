@@ -1,15 +1,15 @@
 <section class="dashboard" ng-controller="dashboardController">
   <header>
     <article class="profile">
-      <figure class="balance">10.00<b>&euro;</b></figure>
+      <figure class="balance">-18.20<b>&euro;</b></figure>
       <img src="/assets/images/profileImg.jpg" />
       <figure class="points">340 <b>pnts.</b>
       </figure>
       <div class="achievments">
-        <img src="/assets/images/vectors/badge.svg" alt="">
-        <img src="/assets/images/vectors/week.svg" alt="">
-        <img src="/assets/images/vectors/month.svg" alt="">
-        <img src="/assets/images/vectors/return.svg" alt="">
+
+        <img src="/assets/images/vectors/MonthBadge.png"/>
+        <img src="/assets/images/vectors/WeekBadge.png"/>
+        <img src="/assets/images/vectors/MoneyBack Badge.png"/>
       </div>
     </article>
   </header>
@@ -17,96 +17,110 @@
   <article class="dashboardContent" ng-class="{show:isReady}">
     <figure class="logbook">
       <h1><i class="fa fa-book"></i>Logbook</h1>
-      <div>
-        <span class="measure good">100 </br><span>mg. per dl</span></span>
-        <span class="affected">
-          <p><b>+ 250</b> points</p>
-          <p><b>- 0.50</b>&euro;</p>
-        </span>
-        <span class="timestamp">
-          <p><i class="fa fa-calendar"></i> November, 5th 2014 </br> <i class="fa fa-clock-o"></i> 10:50pm</p>
-        </span>
-      </div>      
+      <div class="list">
+        <div ng-repeat="log in logbook">
 
-      <div>
-        <span class="measure okay">58 </br><span>mg. per dl</span></span>
-        <span class="affected">
-          <p>+ 50 points</p>
-          <p>- 0.40&euro;</p>
-        </span>
-        <span class="timestamp">
-          <p><i class="fa fa-calendar"></i> November, 5th 2014 </br> <i class="fa fa-clock-o"></i> 10:50pm</p>
-        </span>
-      </div>      
-
-      <div>
-        <span class="measure bad">10 </br><span>mg. per dl</span></span>
-        <span class="affected">
-          <p>+ 150 points</p>
-          <p>- 2.50&euro;</p>
-        </span>
-        <span class="timestamp">
-          <p><i class="fa fa-calendar"></i> November, 5th 2014 </br> <i class="fa fa-clock-o"></i> 10:50pm</p>
-        </span>
-      </div>      
+          <ng:include src="'/app/views/partials/logitem.html'"></ng:include>
+          
+        </div>
+        
+      </div>
 
     </figure>
 
 
     <figure class="trends"><h1><i class="fa fa-bar-chart-o"></i>Trends</h1>
-      <span class="weeks">
-        <h4>MON</h4>
-        <h4>TUE</h4>
-        <h4>WED</h4>
-        <h4>THU</h4>
-        <h4>FRI</h4>
-        <h4>SAT</h4>
-        <h4>SUN</h4>
-      </span>
+      <div class="list">
+        <span class="weeks">
+          <h4>MON</h4>
+          <h4>TUE</h4>
+          <h4>WED</h4>
+          <h4>THU</h4>
+          <h4>FRI</h4>
+          <h4>SAT</h4>
+          <h4>SUN</h4>
+        </span>
       
-      <div>
-        <span class="week"><b>W 28</b> 
-          <span class="good">100</span>
-          <span class="okay"></span>
-          <span class="good">20</span>
-          <span class="bad"></span>
-          <span class="bad"></span>
-          <span class="okay"></span>
-          <span class="good"></span>
-        </span>
-        <span class="week"><b>W 27</b> 
-          <span class="bad"></span>
-          <span class="good"></span>
-          <span class="good"></span>
-          <span class="bad"></span>
-          <span class="okay"></span>
-          <span class="okay"></span>
-          <span class="bad"></span>
-        </span>
-        <span class="week"><b>W 26</b> 
-          <span class="okay"></span>
-          <span class="okay"></span>
-          <span class="bad"></span>
-          <span class="good"></span>
-          <span class="okay"></span>
-          <span class="okay"></span>
-          <span class="bad"></span>
-        </span>
-        <span class="week"><b>W 25</b> 
-          <span class="okay"></span>
-          <span class="bad"></span>
-          <span class="bad"></span>
-          <span class="bad"></span>
-          <span class="bad"></span>
-          <span class="okay"></span>
-          <span class="good"></span>
-        </span>
+        <div>
+          <span class="week" ng-repeat="log in logbook" ng-if="$index % 7 == 0">
+            <b>W {{$index / 7}}</b> 
 
+            <span class="{{glucoseMeasure(logbook[$index])}}">{{logbook[$index].glucose}}</span>
+            <span class="{{glucoseMeasure(logbook[$index+1])}}">{{logbook[$index+1].glucose}}</span>
+            <span class="{{glucoseMeasure(logbook[$index+2])}}">{{logbook[$index+2].glucose}}</span>
+            <span class="{{glucoseMeasure(logbook[$index+3])}}">{{logbook[$index+3].glucose}}</span>
+            <span class="{{glucoseMeasure(logbook[$index+4])}}">{{logbook[$index+4].glucose}}</span>
+            <span class="{{glucoseMeasure(logbook[$index+5])}}">{{logbook[$index+5].glucose}}</span>
+            <span class="{{glucoseMeasure(logbook[$index+6])}}">{{logbook[$index+6].glucose}}</span>
+
+          </span>
+         <!--  <span class="week"><b>W 28</b> 
+            <span class="okay"></span>
+            <span class="good">20</span>
+            <span class="bad"></span>
+            <span class="bad"></span>
+            <span class="okay"></span>
+            <span class="good"></span>
+          </span>
+          <span class="week"><b>W 27</b> 
+            <span class="bad"></span>
+            <span class="good"></span>
+            <span class="good"></span>
+            <span class="bad"></span>
+            <span class="okay"></span>
+            <span class="okay"></span>
+            <span class="bad"></span>
+          </span>
+          <span class="week"><b>W 26</b> 
+            <span class="okay"></span>
+            <span class="okay"></span>
+            <span class="bad"></span>
+            <span class="good"></span>
+            <span class="okay"></span>
+            <span class="okay"></span>
+            <span class="bad"></span>
+          </span>
+          <span class="week"><b>W 25</b> 
+            <span class="okay"></span>
+            <span class="bad"></span>
+            <span class="bad"></span>
+            <span class="bad"></span>
+            <span class="bad"></span>
+            <span class="okay"></span>
+            <span class="good"></span>
+          </span> -->
+
+        </div>
+      
       </div>      
 
     </figure>
 
-    <figure class="ladder"><h1><i class="fa fa-star"></i>Ladder</h1></figure>
+    <figure class="ladder"><h1><i class="fa fa-star"></i>Ladder</h1>
+      <div class="list">
+          <div>
+            <img src="http://www.mytextreader.com/us_flag_small.gif"/>
+            <h3>USA</h3>
+            <h3>500 <span>Pnts</span></h3>
+          </div>      
+          <div>
+            <img src="http://www.worldatlas.com/webimage/flags/countrys/zzzflags/desmall.gif"/>
+            <h3>GERMANY</h3>
+            <h3>400 <span>Pnts</span></h3>
+          </div>      
+          <div>
+            <img src="http://www.cartoongallery.eu/wp-content/uploads/2012/03/norway-flag-small.gif"/>
+            <h3>NORWAY</h3>
+            <h3>398 <span>Pnts</span></h3>
+          </div>      
+          <div>
+            <img src="http://www.floramex.com/places/flagL-Brazil_small.gif"/>
+            <h3>BRAZIL</h3>
+            <h3>200 <span>Pnts</span></h3>
+          </div>
+                
+      </div>
+    </figure>
   </article>
 </section>
 

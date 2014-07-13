@@ -1,11 +1,3 @@
-/**
- * @ngdoc controller
- * @requires $scope
- * @name Error Controller
- * @description This is a basic error controller. It listens for an 'error'broadcast done by other controllers which depend on error controlling. Each function needs to have $rootScope in order to broadcast an error this controller.
- *
- * ## 
- */
 app.controller('errorController', function ($scope) {
 	$scope.showError = function(err){
 		$scope.title="Error " + err.status;

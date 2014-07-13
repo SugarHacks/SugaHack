@@ -1,63 +1,66 @@
 figure.trends{
-
-  span.weeks{
-    position:  relative; 
-    margin-left:  100px;
-    float:left;
-    .boxSizing;
-    h4{
+  div.list{
+    span.weeks{
+      position:  relative; 
+      margin-left:  100px;
       float:left;
-      display: inline-block;
-      margin-left:10px;
-      margin-right:10px;
-      color: rgb(51, 55, 53);
-      font-weight: 300;
-      border-bottom: 1px solid rgb(213, 213, 213);
-    }
-  }
-
-  >div{
-    width:100%;
-    display: inline-block;
-    float:left;
-    span.week{
-      width:100%;
-      float:left;
-      b{
-        float: left;
-        margin-right: 25px;
-        margin-left: 15px;
-        width:65px;
-        font-size: 16px;
-        font-weight: 500;
-        margin-top: 3px;
-        color: rgb(136, 136, 136);
-
-      }
-      span{
+      .boxSizing;
+      h4{
         float:left;
-        width:20px;
-        height:20px;
-        margin-bottom:5px;
-        margin-left: 15px;
-        margin-right: 13px;
-        .rounded-corners(50%);
-        border:2px solid white;
-        cursor: pointer;
-        .transition(all,100ms, ease);
-        color: transparent;
+        display: inline-block;
+        margin-left:10px;
+        margin-right:10px;
+        color: rgb(51, 55, 53);
         font-weight: 300;
-        font-size:8px;
-        line-height: 18px;
-        &:hover{
-          .transition(all,100ms, ease);
-          .scale(2);
-          color: black;
-          z-index: 999;
-        }
+        border-bottom: 1px solid rgb(213, 213, 213);
       }
-      
+    }
+
+    >div{
+      width:100%;
+      display: inline-block;
+      float:left;
+      margin-top:0px;
+      span.week{
+        width:100%;
+        float:left;
+        b{
+          float: left;
+          margin-right: 25px;
+          margin-left: 15px;
+          width:65px;
+          font-size: 16px;
+          font-weight: 500;
+          margin-top: 3px;
+          color: rgb(136, 136, 136);
+
+        }
+        span{
+          float:left;
+          width:20px;
+          height:20px;
+          margin-bottom:5px;
+          margin-left: 15px;
+          margin-right: 13px;
+          .rounded-corners(50%);
+          border:2px solid white;
+          cursor: pointer;
+          .transition(all,100ms, ease);
+          color: transparent;
+          font-weight: 300;
+          font-size:8px;
+          line-height: 18px;
+          &:hover{
+            .transition(all,100ms, ease);
+            .scale(2);
+            color: white;
+            z-index: 999;
+          }
+        }
+        
+      }
     }
   }
+  
     
 }
